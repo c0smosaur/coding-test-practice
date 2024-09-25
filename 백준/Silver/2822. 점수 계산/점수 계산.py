@@ -3,16 +3,11 @@ import sys
 def input():
     return sys.stdin.readline().rstrip()
 
-hi_five = []
-nums = [int(input()) for i in range(8)]
-sorted_nums = sorted(nums)
-score = 0
+nums = [(int(input()), i+1) for i in range(8)] # 인덱스를 함께 튜플로 저장
+sorted_nums = sorted(nums, reverse=True) # 내림차순으로 정렬
+score = sum([num for num, _ in sorted_nums[:5]]) # 큰 순으로 5개 수 합
 
-for j in sorted_nums[3:]:
-    score += j
-    hi_five.append(nums.index(j)+1)
-
-hi_five.sort()
+hi_five = sorted([index for _, index in sorted_nums[:5]]) # 큰 순으로 5개의 수 인덱스 오름차순으로 정렬
 
 print(score)
 print(*hi_five)
