@@ -5,7 +5,6 @@ def input():
     return sys.stdin.readline().rstrip()
 
 n, m = map(int, input().split())
-count = []
 maze = [input() for _ in range(n)]
 visited = [[False]*m for _ in range(n)]
 rl = [0,0,1,-1]
